@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <title>Cardápio Digital DevBurger</title>
+</head>
+<body>
+
+<h1>Lanches DevBurger</h1>
+
+<div id="lanches-container"></div>
+
+<h2>Tem alguma ideia de lanche?</h2>
+<h3>Envie sua sugestão para o DevBurger</h3>
+
+    <form action="/sugestao" method="GET">
+        <div>
+            <label for="nome">Qual seu nome?</label>
+            <input type="text" name="nome" id="nome" required />
+        </div>
+
+        <div>
+            <label for="email">Qual seu e-mail?</label>
+            <input type="email" name="email" id="email" required />
+        </div>
+
+        <div>
+            <label for="nomeLanche">Qual seria o nome do novo lanche?</label>
+            <input type="text" name="nomeLanche" id="nomeLanche" required />
+        </div>
+        
+        <div>
+            <label for="ingredientes">Quais seriam os ingredientes?</label>
+            <input type="text" name="ingredientes" id="ingredientes" required />
+        </div>
+
+        <button type="submit">Enviar sugestão</button>
+    </form>
+
+    <footer>
+        <a href="/contato">
+            <button>Fale Conosco</button>
+        </a>
+        
+        <p style="margin-top: 20px; font-size: 0.8em;">
+            Imagens dos lanches obtidas em <a href="https://www.pexels.com/pt-br/procurar/burger/" target="_blank">Pexels</a>
+        </p>
+    </footer>
+
+    <section class="sobre">
+    <h2>Sobre a desenvolvedora</h2>
+    <p>Meu nome é Tamiris e estou estudando Análise e Desenvolvimento de Sistemas. Este projeto foi desenvolvido como parte da minha jornada para aprender mais sobre back-end e construção de páginas dinâmicas com Node.js e Express. 💻</p>
+    </section>
+
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

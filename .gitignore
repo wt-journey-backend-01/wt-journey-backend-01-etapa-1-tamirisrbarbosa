@@ -1,0 +1,21 @@
+# Node.js
+node_modules/
+.env
+*.log
+npm-debug.log*
+
+# SO (macOS e Windows)
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*.tmp
+*.swp
+*.swo
+
+# Backup do VSCode
+.vscode/
+
+# Pastas que não devem ser versionadas
+/dist
+/build
