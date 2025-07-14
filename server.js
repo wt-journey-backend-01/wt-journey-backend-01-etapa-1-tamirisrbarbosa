@@ -21,7 +21,7 @@ let ultimaSugestao = null;
 /* Rota GET /not-found
   Página simples de erro, para casos em que não há dados para serem mostrados. */
 app.get('/not-found', (req, res) => {
-    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+    res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
 /* Rota POST /contato
