@@ -60,11 +60,6 @@ app.get('/contato', (req, res) => {
 });
 
 
-
-//////////////////
-
-
-
 /* Rota GET /sugestao-recebida
    Recebe dados do formulário de sugestão (via GET) e redireciona para confirmação */
 app.get('/sugestao', (req, res) => {
@@ -97,7 +92,6 @@ app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
-//////////
 
 /* Middleware final (catch-all)
    Captura qualquer rota que não exista e exibe a página 404 */
