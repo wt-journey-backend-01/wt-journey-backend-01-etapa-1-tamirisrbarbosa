@@ -5,7 +5,7 @@ const fs = require('fs'); // Adicionado para ler arquivos locais
 
 // Inicializa a aplicação Express
 const app = express();
-const PORT = 4000;
+const PORT = 3000;
 
 // Middleware para permitir o uso de arquivos estáticos (ex: CSS, imagens, JSON, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
