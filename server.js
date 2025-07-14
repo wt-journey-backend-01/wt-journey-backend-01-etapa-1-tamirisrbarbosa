@@ -111,7 +111,7 @@ app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
-// Inicializa o servidor na porta 4000
+// Inicializa o servidor na porta 3000
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
