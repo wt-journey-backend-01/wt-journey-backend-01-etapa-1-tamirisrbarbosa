@@ -1,7 +1,7 @@
 // Importa os módulos necessários
 const express = require('express');
 const path = require('path');
-const fs = require('fs'); // Adicionado para ler arquivos locais
+const fs = require('fs'); // Para ler arquivos locais
 
 // Inicializa a aplicação Express
 const app = express();
@@ -68,7 +68,7 @@ app.get('/contato', (req, res) => {
 });
 
 /* Rota GET /sugestao
-   Recebe dados do formulário de sugestão (via GET) e redireciona para confirmação */
+   Recebe dados do formulário de sugestão (via GET) e redireciona para confirmação ou para erro */
 app.get('/sugestao', (req, res) => {
   ultimaSugestao = req.query;
   res.redirect('/sugestao-recebida');
@@ -118,14 +118,20 @@ app.get('/api/lanches', (req, res) => {
 
       // Validação dos dados
       const lanchesValidos = todosLanches.filter(lanche =>
-        lanche.id &&
-        typeof lanche.id === 'number' &&
-        lanche.nome &&
-        typeof lanche.nome === 'string' &&
-        lanche.nome.trim() !== '' &&
-        Array.isArray(lanche.ingredientes) &&
-        lanche.ingredientes.length > 0
-      );
+          lanche.id &&
+          typeof lanche.id === 'number' &&
+          lanche.nome &&
+          typeof lanche.nome === 'string' &&
+          lanche.nome.trim() !== '' &&
+          lanche.descricao &&
+          typeof lanche.descricao === 'string' &&
+          lanche.descricao.trim() !== '' &&
+          lanche.imagem &&
+          typeof lanche.imagem === 'string' &&
+          lanche.imagem.trim() !== '' &&
+          Array.isArray(lanche.ingredientes) &&
+          lanche.ingredientes.length > 0
+);
 
       res.status(200).json(lanchesValidos);
     } catch (parseError) {
