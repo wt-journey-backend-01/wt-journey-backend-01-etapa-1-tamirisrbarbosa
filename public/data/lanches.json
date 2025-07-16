@@ -3,15 +3,20 @@
     "categoria": "Clássicos DevBurger",
     "lanches": [
       {
+        "id": 1,
         "nome": "Hello World",
         "descricao": "Clássico, ideal para quem está começando na casa. Pão, carne, queijo e ketchup",
-        "imagem": "/images/hello-world.jpg"
+        "imagem": "/images/hello-world.jpg",
+        "ingredientes": ["Pão", "carne", "queijo", "ketchup"]
       },
 
       {
+        "id": 2,
         "nome": "Na Minha Máquina Funciona",
-        "descricao": "Clássico e confiável — cheddar, alface, carne, tomate",
-        "imagem": "/images/na-minha-maquina-funciona.jpg"
+        "descricao": "Clássico e confiável. Pão, cheddar, alface, carne e tomate",
+        "imagem": "/images/na-minha-maquina-funciona.jpg",
+        "ingredientes": ["Pão", "cheddar", "alface", "carne", "tomate"]
+
       }
     ]
   },
@@ -19,19 +24,25 @@
     "categoria": "Duplos e Overpowered",
     "lanches": [
       {
+        "id": 3,
         "nome": "Deploy Duplo",
-        "descricao": "Duas carnes, duplo queijo, pão brioche",
-        "imagem": "/images/deploy-duplo.jpg"
+        "descricao": "Duas carnes, duplo queijo e pão brioche",
+        "imagem": "/images/deploy-duplo.jpg",
+        "ingredientes": ["Duas carnes", "duplo queijo", "pão brioche"]
       },
       {
+        "id": 4,
         "nome": "Commit Duplo",
-        "descricao": "Duas carnes, bacon crocante e cheddar em dobro ",
-        "imagem": "/images/commit-duplo.jpg"
+        "descricao": "Duas carnes, bacon crocante e cheddar em dobro",
+        "imagem": "/images/commit-duplo.jpg",
+        "ingredientes": ["Duas carnes", "bacon", "cheddar em dobro"]
       },
       {
+        "id": 5,
         "nome": "404: Fome Not Found",
-        "descricao": "Três carnes, triplo queijo e todos os adicionais possíveis = nenhum vestígio de fome encontrado após a consumação",
-        "imagem": "/images/404-fome-not-found.jpg"
+        "descricao": "Nenhum vestígio de fome encontrado após a consumação. Três carnes, triplo queijo e todos os adicionais possíveis",
+        "imagem": "/images/404-fome-not-found.jpg",
+        "ingredientes": ["Três carnes", "triplo queijo", "todos os adicionais possíveis"]
       }
     ]
   },
@@ -39,9 +50,11 @@
     "categoria": "Veggie & Alternativos",
     "lanches": [
       {
+        "id": 6,
         "nome": "Bug no Pão",
         "descricao": "Pão integral, burger de grão-de-bico, tomate e adicionais",
-        "imagem": "/images/bug-no-pao.jpg"
+        "imagem": "/images/bug-no-pao.jpg",
+        "ingredientes": ["Pão integral", "burger de grão-de-bico", "tomate", "adicionais"]
       }
     ]
   },
@@ -49,9 +62,11 @@
     "categoria": "Apimentados",
     "lanches": [
       {
+        "id": 7,
         "nome": "Pull Request Picante",
-        "descricao": "Burger apimentado com jalapeño, maionese chipotle",
-        "imagem": "/images/pull-request-picante.jpg"
+        "descricao": "Burger apimentado com jalapeño e maionese chipotle",
+        "imagem": "/images/pull-request-picante.jpg",
+        "ingredientes": ["Burger apimentado com jalapeño", "maionese chipotle"]
       }
     ]
   },
@@ -59,24 +74,32 @@
     "categoria": "Favoritos da casa",
     "lanches": [
       {
+        "id": 8,
         "nome": "Stack Overflow",
         "descricao": "Duas carnes, dois queijos, molho e cebola",
-        "imagem": "/images/stack-overflow.jpg"
+        "imagem": "/images/stack-overflow.jpg",
+        "ingredientes": ["Duas carnes", "dois queijos", "molho", "cebola"]
       },
       {
+        "id": 9,
         "nome": "Commit Inicial",
-        "descricao": "Primeira boa impressão — pão escuro, bacon, queijo prato",
-        "imagem": "/images/commit-inicial.jpg"
+        "descricao": "Primeira boa impressão. Pão escuro, bacon e queijo prato",
+        "imagem": "/images/commit-inicial.jpg",
+        "ingredientes": ["Pão escuro", "bacon", "queijo prato"]
       },
       {
+        "id": 10,
         "nome": "Fullstack Cheddar",
         "descricao": "Pão australiano, dois hambúrgueres, cheddar cremoso, bacon, cebola caramelizada, picles e um molho especial da casa",
-        "imagem": "/images/fullstack-cheddar.jpg"
+        "imagem": "/images/fullstack-cheddar.jpg",
+        "ingredientes": ["Pão australiano", "dois hambúrgueres", "cheddar cremoso", "bacon", "cebola caramelizada", "picles", "um molho especial da casa"]
       },
       {
+        "id": 11,
         "nome": "Refatorado com Bacon",
         "descricao": "Burger clássico com toque especial de bacon",
-        "imagem": "/images/refatorado-com-bacon.jpg"
+        "imagem": "/images/refatorado-com-bacon.jpg",
+        "ingredientes": ["Burger clássico com bacon"]
       }
     ]
   }

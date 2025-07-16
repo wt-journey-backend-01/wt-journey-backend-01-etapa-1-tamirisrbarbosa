@@ -33,15 +33,25 @@ app.post('/contato', (req, res) => {
 /* Rota GET /contato-recebido
     Exibe uma mensagem de agradecimento dos dados enviados ou redireciona para página de erro */
 app.get('/contato-recebido', (req, res) => {
-  if (ultimoContato === null) {
+  if (
+    !ultimoContato ||
+    !ultimoContato.nome ||
+    !ultimoContato.email ||
+    !ultimoContato.assunto ||
+    !ultimoContato.mensagem
+  ) {
     return res.redirect('/not-found');
   }
 
-  const { nome, email, motivo } = ultimoContato;
+  const { nome, email, assunto, mensagem } = ultimoContato;
 
-  res.send(`
-    <h1>Contato recebido! Obrigado, ${nome}</h1>
+  res.status(200).type('html').send(`
+    <h1>Contato recebido com sucesso!</h1>
+    <p><strong>Nome:</strong> ${nome}</p>
     <p><strong>E-mail:</strong> ${email}</p>
+    <p><strong>Assunto:</strong> ${assunto}</p>
+    <p><strong>Mensagem:</strong> ${mensagem}</p>
+    <a href="/">Voltar ao cardápio</a>
   `);
 });
 
@@ -77,30 +87,50 @@ app.get('/sugestao-recebida', (req, res) => {
     return res.redirect('/not-found');
   }
 
-  res.send(`
+  const { nome, nomeLanche, ingredientes } = ultimaSugestao;
+  
+  res.status(200).type('html').send(`
     <h1>Sugestão recebida com sucesso!</h1>
     <p>Obrigado por contribuir com o DevBurger! 🔥🍔</p>
+    <p><strong>Nome:</strong> ${nome}</p>
+    <p><strong>Lanche:</strong> ${nomeLanche}</p>
+    <p><strong>Ingredientes:</strong> ${ingredientes}</p>
     <a href="/">Voltar ao cardápio</a>
   `);
 });
 
-/* Rota GET /api/lanches
-   Retorna lista de lanches a partir do arquivo JSON (simula uma API) */
+/* Rota GET /api/lanches 
+  Retorna lista de lanches em JSON */
 app.get('/api/lanches', (req, res) => {
   const filePath = path.join(__dirname, 'public', 'data', 'lanches.json');
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
       console.error('Erro ao ler lanches.json:', err);
-      return res.status(500).json({ erro: 'Erro interno ao ler os lanches.' });
+      return res.status(500).json({ erro: 'Erro ao carregar os lanches' });
     }
 
     try {
-      const jsonData = JSON.parse(data);
-      res.json(jsonData);
+      const categorias = JSON.parse(data);
+
+      // Junta todos os lanches de todas as categorias em um único array
+      const todosLanches = categorias.flatMap(categoria => categoria.lanches);
+
+      // Validação dos dados
+      const lanchesValidos = todosLanches.filter(lanche =>
+        lanche.id &&
+        typeof lanche.id === 'number' &&
+        lanche.nome &&
+        typeof lanche.nome === 'string' &&
+        lanche.nome.trim() !== '' &&
+        Array.isArray(lanche.ingredientes) &&
+        lanche.ingredientes.length > 0
+      );
+
+      res.status(200).json(lanchesValidos);
     } catch (parseError) {
-      console.error('Erro ao interpretar lanches.json:', parseError);
-      res.status(500).json({ erro: 'Erro ao processar dados dos lanches.' });
+      console.error('Erro ao interpretar o JSON:', parseError);
+      res.status(500).json({ erro: 'Erro ao interpretar os dados dos lanches' });
     }
   });
 });
